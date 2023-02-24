@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title> furniture store Website</title>
+    <!-- LInk To CSS -->
+    <link rel="stylesheet" th:href="@{~/css/style.css}">
+    <!-- Box Icons -->
+    <link rel="stylesheet"
+    th:href="@{~/csshttps://cdn.jsdelivr.net/npm/boxicons@latest/css/boxicons.min.css}">
+</head>
+<body>
+    <!-- Navbar -->
+    <header>
+        <a href="#" class="logo">furniture <span>Shop.</span></a>
+        <div class="bx bx-menu" id="menu-icon"></div>
+
+        <ul class="navbar">
+            <li><a href="#home">Home</a></li>
+            <li><a href="#shop">Shop</a></li>
+            <li><a href="#new">New Arrival</a></li>
+            <li><a href="#about">About</a></li>
+            <li><a href="#brands">Our Partners</a></li>
+            <li><a href="#contact">Contact</a></li>
+            <a th:href="@{~/user/viewAllMyOrders/}+${userdata.id}">Profile</a>
+<!--            <li><a href="demo.html" class="btn">Profile</a></li>-->
+        </ul>
+    </header>
+    <!-- Home -->
+    <section class="home" id="home" >
+        <div class="home-text">
+            <h1><Span>Make</Span>Your Comfort <br> Is Our <span>Happiness</span></h1>
+            <p>Our online store makes you feel the quality product is a part of your life. Our service is customer satisfaction.</p>
+            <a href="shop" class="btn">Shop Now</a>
+        </div>
+    </section>
+    <!-- Shop -->
+    <section class="shop" id="shop">
+        <div class="heading">
+            <span>New Arrival</span>
+            <h2>Shop Now</h2>
+        </div>
+        <!-- Content -->
+        <div class="shop-container">
+            <!-- Box 1 -->
+            <div class="box" th:each="product:${add}">
+                <a th:href="@{~/user/productinfo/}+${product.id}">
+                <div class="box-img">
+                    <img th:src="'data:image/png;base64,'+${product.imageBase64}" alt="">
+                </div>
+                <div class="title-price">
+                    <h3 th:text="${product.productname}"></h3>
+                    <div class="stars">
+                        <i class='bx bxs-star' ></i>
+                        <i class='bx bxs-star' ></i>
+                        <i class='bx bxs-star' ></i>
+                        <i class='bx bxs-star' ></i>
+                        <i class='bx bxs-star-half' ></i>
+                    </div>
+                </div>
+                <span th:text="${product.price}"></span>
+               </a>
+<!--                <i class='bx bx-cart' >buy</i>-->
+            </div>
+
+        </div>
+    </section>
+    <!-- New Arrival -->
+    <section class="new" id="new">
+        <div class="heading"> 
+            <span>New Collection</span>
+            <h2>Best Selling</h2>
+        </div>
+        <!-- Content -->
+        <div class="new-container">
+            <!-- Box 1 -->
+            <div class="box" th:each="product:${productfetch}">
+                <a th:href="@{~/user/productinfo/}+${product.id}">
+
+                <div class="box-img">
+                <img th:src="'data:image/png;base64,'+${product.imageBase64}" alt="">
+                </div>
+                <div class="title-price">
+                    <h3 th:text="${product.productname}"></h3>
+                    <div class="stars">
+                        <i class='bx bxs-star' ></i>
+                        <i class='bx bxs-star' ></i>
+                        <i class='bx bxs-star' ></i>
+                        <i class='bx bxs-star' ></i>
+                        <i class='bx bxs-star-half' ></i>
+                    </div>
+                </div>
+                <span th:text="${product.price}"></span>
+                <i class='bx bx-cart' ></i>
+                </a>
+            </div>
+
+        </div>
+    </section>
+    <!-- About -->
+    <section class="about" id="about">
+        <div class="about-img">
+            <img th:src="@{~/images/about.jpg}" alt="">
+        </div>
+        <div class="about-text">
+            <span>About Us</span>
+            <h2>furniture is important part <br>for comfort</h2>
+            <p>A beauty store, beauty supply store or furnitures store is a specialty retailer that sells furnitures, hair-care products and/or beauty tools.</p>
+            <p>furnitures designed to enhance or alter one's appearance (makeup) can be used to conceal blemishes, enhance one's natural features</p>
+            <a href="#shop" class="btn">Learn More.</a>
+        </div>
+    </section>
+    <!-- Brands -->
+    <section class="brands" id="brands">
+        <div class="heading">
+            <span>Brands</span>
+            <h2>Our Brands Partners</h2>
+        </div>
+        <div class="brands-container">
+            <img th:src="@{~/images/Google.png}" alt="">
+            <img th:src="@{~/images/amazon.png}" alt="">
+            <img th:src="@{~/images/netflix.png}" alt="">
+            <img th:src="@{~/images/tesla.png}" alt="">
+            <img th:src="@{~/images/starbucks.png}" alt="">
+            <img th:src="@{~/images/zoom.png}" alt="">
+        </div>
+    </section>
+    <section class="newsletter" id="contact">
+        <h2>Subscribe To Newsletter</h2>
+        <div class="news-box">
+            <input type="text" placeholder="Enter Your Email...">
+            <a href="#" class="btn">Subscribe</a>
+        </div>
+    </section>
+    <!-- Footer -->
+    <section class="footer" id="footer">
+        <div class="footer-box">
+            <h2>furniture <span>Shop.</span></h2>
+            <p>furniture products aids extra beauty to the lady. They look attractive and beautiful.</p>
+            <div class="social">
+                <a href="#"><i class='bx bxl-facebook'></i></a>
+                <a href="#"><i class='bx bxl-twitter'></i></a>
+                <a href="#"><i class='bx bxl-instagram'></i></a>
+            </div>
+        </div>
+        <div class="footer-box">
+            <h3>Services</h3>
+            <li><a href="#">Product</a></li>
+            <li><a href="#">Help & Support</a></li>
+            <li><a href="#">Pricing</a></li>
+            <li><a href="#">FAQ</a></li>
+        </div>
+        <div class="footer-box">
+            <h3>Product</h3>
+
+            <li th:each="product:${productfetch}" ><a href="#" th:text="${product.productname}" ></a></li>
+<!--            <li><a href="#">Makeupbox</a></li>-->
+<!--            <li><a href="#">Eye liner</a></li>-->
+<!--            <li><a href="#">Body spray</a></li>-->
+        </div>
+        <div class="footer-box contact-info">
+            <h3>Contact</h3>
+            <span>Kathmandy city, Nepal 10004</span>
+            <span>01 523 6784</span>
+            <span>furnitureshop@gmail.com</span>
+            
+        </div>
+    </section>
+    <div class="copyright">
+        <p>&#169; Copyright All Right Reserved 2022.</p>
+    </div>
+    <!-- Link To JS -->
+    <script src="main.js"></script>
+</body>
+</html>

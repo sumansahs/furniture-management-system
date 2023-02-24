@@ -1,0 +1,63 @@
+
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Product</title>
+  <link rel="stylesheet" th:href="@{~/css/product.css}">
+</head>
+<body>
+<div class = "card-wrapper">
+  <div class = "card">
+    <!-- card left -->
+    <div class = "product-imgs">
+      <div class = "img-display">
+        <div class = "img-showcase">
+          <img th:src="'data:image/png;base64,'+${productdata.imageBase64}" alt="The img is corrupt.">
+        </div>
+      </div>
+
+    </div>
+    <!-- card right -->
+    <div class = "product-content">
+      <h2 class = "product-title" th:text="${productdata.getProductname()}"></h2>
+
+
+
+      <div class = "product-price">
+        <p class = "new-price">New Price: <span th:text="${productdata.getPrice()}"></span></p>
+      </div>
+
+      <div class = "product-detail">
+        <h2>About this Product: </h2>
+        <ul>
+          <p>Name: <span th:text="${productdata.getProductname()}"></span></p>
+          <p>Brand: <span th:text="${productdata.getBrand()}"></span></p>
+          <p>Category: <span th:text="${productdata.getCatrgory()}"></span></p>
+          <p>Color: <span th:text="${productdata.getColor()}"></span></p>
+          <p>Price: <span th:text="${productdata.getPrice()}"></span></p>
+          <p>Price: <span th:text="${productdata.getDescription()}"></span></p>
+
+        </ul>
+      </div>
+
+      <form th:action="@{/user/saveorder}" th:object="${order}" th:method="post" >
+        <input type="text" hidden="hidden" name="user_id"  th:value="${info.id}">  <br>
+        <input type="text" hidden="hidden" name="product_id"  th:value="${productdata.id}">  <br>
+
+        Quantity: <input type="number"  th:field="*{quantity}">  <br>
+        Address:  <input type="text"  th:field="*{address}"> <br>
+        <button type="submit" class = "btn">Order Now</button>
+      </form>
+
+
+
+    </div>
+  </div>
+</div>
+</body>
+</html>

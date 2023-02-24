@@ -1,0 +1,92 @@
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>All Product List</title>
+  <link rel="stylesheet" th:href="@{~/css/admin.css}">
+  <link rel="stylesheet" th:href="@{/css/table.css}">
+  <link href='https://unpkg.com/boxicons@2.0.7/css/boxicons.min.css' rel='stylesheet'>
+
+</head>
+<body>
+<div class="sidebar">
+  <ul class="nav-links">
+    <li>
+      <a th:href="@{~/admin/viewallproduct}">
+        <i class='bx bx-box'></i>
+        <span class="links_name">My Product</span>
+      </a>
+    </li>
+    <li>
+      <a th:href="@{~/admin/viewallorder}">
+        <i class='bx bx-list-ul'></i>
+        <span class="links_name">Order list</span>
+      </a>
+    </li>
+
+    <li class="log_out">
+      <a th:href="@{~/logout}">
+        <i class='bx bx-log-out'></i>
+        <span class="links_name">Log out</span>
+      </a>
+    </li>
+  </ul>
+</div>
+<section class="home-section">
+  <nav>
+    <div class="sidebar-button">
+      <i class='bx bx-menu sidebarBtn'></i>
+      <span class="dashboard">Administrator</span>
+    </div>
+  </nav>
+
+
+</section>
+
+<script>
+  let sidebar = document.querySelector(".sidebar");
+  let sidebarBtn = document.querySelector(".sidebarBtn");
+  sidebarBtn.onclick = function () {
+    sidebar.classList.toggle("active");
+    if (sidebar.classList.contains("active")) {
+      sidebarBtn.classList.replace("bx-menu", "bx-menu-alt-right");
+    } else
+      sidebarBtn.classList.replace("bx-menu-alt-right", "bx-menu");
+  }
+</script>
+
+<div style="margin-left: 200px; margin-top: 100px">
+
+  <table>
+    <thead>
+    <tr>
+      <th>id</th>
+      <th>Productname</th>
+      <th>UserName</th>
+      <th>Quantity</th>
+      <th>Address</th>
+      <th>Email</th>
+      <th>Price</th>
+
+    </tr>
+    </thead>
+    <tbody>
+    <tr th:each="product:${alllist}">
+      <td th:text="${product.id}"></td>
+      <td th:text="${product.getProduct_id().productname}"></td>
+      <td th:text="${product.getUser_id().fullname}"></td>
+      <td th:text="${product.quantity}"></td>
+      <td th:text="${product.address}"></td>
+      <td th:text="${product.getUser_id().email}"></td>
+      <td th:text="${product.getProduct_id().price}"></td>
+
+
+    </tr>
+    </tbody>
+  </table>
+</div>
+
+</body>
+</html>

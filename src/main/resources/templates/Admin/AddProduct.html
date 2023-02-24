@@ -1,0 +1,79 @@
+<!--<!DOCTYPE html>-->
+<!--<html lang="en">-->
+<!--<head>-->
+<!--    <meta charset="UTF-8">-->
+<!--    <title>Title</title>-->
+<!--</head>-->
+<!--<body>-->
+<!--<form th:method="post" th:action="@{/admin/saveproduct}" th:object="${add}" enctype="multipart/form-data">-->
+<!--    <input type="text" hidden="hidden" th:field="*{id}" th:value="${add.id}">-->
+<!--    <input type="text" placeholder="name" th:field="*{productname}" th:value="${add.productname}">-->
+<!--    <input type="text" placeholder="quantity" th:field="*{quantity}" th:value="${add.quantity}">-->
+<!--    <input type="text" placeholder="price" th:field="*{price}" th:value="${add.price}">-->
+<!--    <input type="text" placeholder="description" th:field="*{description}" th:value="${add.description}">-->
+<!--    <input type="file" name="image" accept="image/*" >-->
+<!--    <input type="submit" value="Submit">-->
+<!--</form>-->
+
+<!--</body>-->
+<!--</html>-->
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>product</title>
+    <link rel="stylesheet" th:href="@{~/css/add_product.css}">
+</head>
+<body>
+<div class="container">
+    <div class="title">
+        <h2>Product Order Form</h2>
+    </div>
+    <div class="d-flex">
+        <form th:method="post" th:action="@{/admin/saveproduct}" th:object="${add}" enctype="multipart/form-data">
+            <input type="text" hidden="hidden" th:field="*{id}" th:value="${add.id}">
+            <label>
+                <span class="fname">Product Name <span class="required">*</span></span>
+                <input type="text" placeholder="name" th:field="*{productname}" th:value="${add.productname}">
+            </label>
+            <label>
+                <span class="lname">Price <span class="required">*</span></span>
+                <input type="text" placeholder="price" th:field="*{price}" th:value="${add.price}">
+            </label>
+            <label>
+                <span>Brand</span>
+                <input type="text" placeholder="brand" required th:field="*{brand}">
+            </label>
+            <label>
+                <span>Quantity<span class="required">*</span></span>
+                <input type="text" placeholder="quantity" th:field="*{quantity}" th:value="${add.quantity}">
+            </label>
+
+            <label>
+                <span>Color <span class="required">*</span></span>
+                <input type="text" placeholder="colors" required th:field="*{color}">
+            </label>
+            <label>
+                <span>Category<span class="required">*</span></span>
+                <input type="text" placeholder="Category" required th:field="*{category}">
+            </label>
+            <label>
+                <span>Description<span class="required">*</span></span>
+                <input type="text" placeholder="Description" required th:field="*{description}">
+            </label>
+            <label>
+                <span>Image<span class="required">*</span></span>
+                <input type="file" name="image" accept="image/*" required>
+            </label>
+            <label>
+                <input type="submit" value="Add Product">
+            </label>
+        </form>
+    </div>
+</div>
+</body>
+</html>

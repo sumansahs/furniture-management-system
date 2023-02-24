@@ -1,0 +1,68 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+/* image section starts */
+body{
+    font-family: 'Poppins', sans-serif;
+    background: #ffffff;
+    text-align: center;
+}
+body h1{
+    padding-bottom: 20px;
+}
+section{
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    padding-left: 125px;
+}
+body h1{
+    margin-top: 20px;
+    padding-right: 315px;
+}
+
+
+.top img{
+    width: 800px;
+    height: 500px;
+    border-radius: 10px;
+}
+/* image section ends */
+
+/* description section starts */
+.description{
+    padding: 15px;
+    margin-left: 100px;
+    height: 450px;
+    width: 280px;
+    text-align: justify;
+    border-radius: 20px;
+    color: white;
+    background-color: rgb(53, 143, 53);
+}
+.description p{
+    padding: 20px;
+}
+/* description section ends */
+
+/* review section starts */
+.review{
+    padding-bottom: 50px;
+    padding-left: 50px;
+    text-align: center;
+}
+.review h2{
+    padding: 20px;
+}
+.review input{
+    font-size: 20px;
+    margin-top: 10px;
+    border-radius: 7px;
+}
+
+.review input:hover{
+    background-color: green;
+    transition: 2s;
+    cursor: pointer;
+}
